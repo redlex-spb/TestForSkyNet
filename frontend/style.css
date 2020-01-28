@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    background-color: #efeff4;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 0;
+}
+.nav_bar {
+    border-bottom: 1px solid #c8c7cc;
+    position: static;
+    margin-bottom: 40px;
+}
+.nav_bar.show {
+    display: block;
+}
+.nav_bar .wrapper {
+    position: relative;
+}
+.nav_bar a.back {
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 8px);
+    border: solid #82c12b;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(135deg);
+}
+.nav_bar span.title {
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 15px;
+    font-weight: bold;
+    background: #fff;
+}
+#screen_1,
+#screen_2.show,
+#screen_3.show{
+    display: grid;
+    max-width: calc(100% - 1px);
+}
+#screen_1.hide,
+#screen_2,
+#screen_3,
+.nav_bar,
+.content_for_screen_2,
+.content_for_screen_3{
+    display: none;
+}
+#screen_1 .tarif,
+#screen_2 .tarif,
+#screen_3 .tarif{
+    padding: 0 0 10px 20px;
+    background: #fff;
+    border-top: 1px solid #c8c7cc;
+    border-bottom: 1px solid #c8c7cc;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#screen_1 .tarif h2,
+#screen_2 .tarif h2,
+#screen_3 .tarif h2{
+    color: #82c12b;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 0;
+}
+#screen_1 .tarif hr,
+#screen_2 .tarif hr,
+#screen_3 .tarif hr{
+    border-style: solid;
+    border-color: #c8c7cc;
+    border-width: 0.5px;
+    margin-top: 0;
+    width: 100%;
+}
+#screen_1 .tarif a,
+#screen_2 .tarif a{
+    text-decoration: none
+}
+#screen_1 .tarif a.tarif_link,
+#screen_2 .tarif a.tarif_link{
+    color: #4d575d;
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding-bottom: 10px;
+    height: 100%;
+}
+#screen_1 .tarif a.tarif_link span.speed,
+#screen_1 .tarif a.tarif_link span.price {
+    font-weight: bold;
+    font-size: 25px;
+}
+#screen_1 .tarif a.tarif_link span.speed {
+    color: #fff;
+    background: #70603e;
+    margin-left: -20px;
+    padding: 5px 5px 5px 20px;
+    margin-bottom: 10px;
+}
+#screen_1 .tarif a.tarif_link span.speed.brown {
+    background-color: #70603e
+}
+#screen_1 .tarif a.tarif_link span.speed.blue {
+    background-color: #0075d9
+}
+#screen_1 .tarif a.tarif_link span.speed.red {
+    background-color: #e74807
+}
+#screen_1 .tarif a.tarif_link span.speed ~ span.description,
+#screen_2 .tarif a.tarif_link span.price ~ span.description{
+    padding-top: 15px
+}
+#screen_1 .tarif a.tarif_link span.description + span.description,
+#screen_2 .tarif a.tarif_link span.description + span.description{
+    padding-top: 0px
+}
+#screen_1 .tarif a.tarif_link::after,
+#screen_2 .tarif a.tarif_link::after{
+    content: '';
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 20px;
+    border: solid #c7c7cc;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(-45deg);
+}
+#screen_1 .tarif a.tarif_link:hover::after,
+#screen_2 .tarif a.tarif_link:hover::after{
+    border-color: black
+}
+#screen_1 .tarif a.more{
+    color: #007aff
+}
+#screen_2 .tarif h2,
+#screen_3 .tarif h2{
+    font-size: 25px
+}
+#screen_2 .tarif a.tarif_link span.price {
+    font-weight: bold
+}
+#screen_3 .tarif {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #c8c7cc;
+}
+#screen_3 .tarif b{
+    font-size: 20px
+}
+#screen_3 .tarif span{
+    color: #4d575d;
+}
+#screen_3 .tarif span.gray {
+    color: #ababab
+}
+#screen_3 .tarif span.gray:last-of-type {
+    padding-bottom: 10px;
+}
+#screen_3 .button {
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #82c12b;
+    color: #fff;
+}
+
+@media (min-width: 1024px) {
+    #screen_1,
+    #screen_2{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #screen_1 .tarif:first-of-type,
+    #screen_1 .tarif:nth-of-type(2),
+    #screen_1 .tarif:nth-of-type(3){
+        border-top: none
+    }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+    #screen_1,
+    #screen_2{
+        grid-template-columns: repeat(2, 1fr)
+    }
+    #screen_1 .tarif:first-of-type,
+    #screen_1 .tarif:nth-of-type(2){
+        border-top: none
+    }
+}
+@media (max-width: 639px) {
+    #screen_1,
+    #screen_2{
+        grid-template-columns: repeat(1, 1fr)
+    }
+    #screen_1 .tarif:first-of-type{
+        border-top: none
+    }
+}
